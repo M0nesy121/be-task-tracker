@@ -3,6 +3,7 @@ package main.java.io.github.bokaicheng.taskcli;
 import java.time.LocalDateTime;
 
 public class Task {
+  private static int lastId = 0;
   private int id;
   private String description;
   private Status status;
@@ -14,8 +15,8 @@ public class Task {
    * @param id
    * @param description
    */
-  public Task(int id, String description) {
-    this.id = id;
+  public Task(String description) {
+    this.id = lastId++;
     this.description = description;
     status = Status.TODO;
     createdAt = LocalDateTime.now();
@@ -110,7 +111,7 @@ public class Task {
    * @return
    */
   public static Task fromJSON() {
-    return new Task(0, null);// TODOs
+    return new Task(null);// TODOs
   }
 
   /**
