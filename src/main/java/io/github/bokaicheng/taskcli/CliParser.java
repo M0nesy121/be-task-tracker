@@ -23,6 +23,17 @@ public class CliParser {
     if (cmd == "mark-in-progress") {
       taskManager.markInProgress(args[1]);
     }
+
+    if (cmd == "mark-done") {
+      taskManager.markDone(args[1]);
+    }
+
+    if (cmd == "list") {
+      if (args.length > 1) {
+        taskManager.listTasks(args[1]);
+      }
+      taskManager.listTasks();
+    }
   }
 
 }
